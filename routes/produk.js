@@ -34,7 +34,7 @@ router.get('/tampil/:id_produk', function(req, res, next) {
         } else {
             res.json({
                 status: false,
-                pesan: "Kategori tidak ditemukan",
+                pesan: "Produk tidak ditemukan",
                 data: null
             });
         }
