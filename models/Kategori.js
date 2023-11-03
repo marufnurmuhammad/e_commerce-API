@@ -1,29 +1,17 @@
 var koneksi = require('../koneksi');
 const Sequelize = require('sequelize');
-const Produk = koneksi.define('Produk', {
-    id_produk: {
+const Kategori = koneksi.define('Kategori', {
+    id_kategori: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
     },
-    nama_produk: {
+    nama_kategori: {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    gambar: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    harga_produk: {
-        type: Sequelize.BIGINT,
-        allowNull: false,
-    },
-    deskripsi: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    kategori: {
+    foto_kategori: {
         type: Sequelize.STRING,
         allowNull: false,
     },
@@ -31,4 +19,4 @@ const Produk = koneksi.define('Produk', {
 }, {
     freezeTableName: true
 });
-module.exports = Produk;
+module.exports = Kategori;

@@ -20,4 +20,4 @@ router.get('/tampil', function(req, res, next) {
     });
 });
 
-module.exports = r
+module.exports = router;

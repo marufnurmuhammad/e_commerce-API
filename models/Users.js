@@ -1,20 +1,25 @@
 var koneksi = require('../koneksi');
 const Sequelize = require('sequelize');
-const Users = koneksi.define('User', {
+const Users = koneksi.define('Pengguna', {
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
     },
-    username: {
+    nama_pengguna: {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    nama: {
+    email: {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+
     alamat: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -23,10 +28,7 @@ const Users = koneksi.define('User', {
         type: Sequelize.INTEGER,
         allowNull: false,
     },
-    password: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
+
 }, {
     freezeTableName: true
 });

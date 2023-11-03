@@ -5,11 +5,11 @@ var Users = require('../models/Users')
 
 
 router.post('/', function(req, res, next) {
-    var username = req.body.username;
+    var email = req.body.email;
     var password = req.body.password;
 
     Users.findOne({
-        where: { username: username, password: password }
+        where: { email: email, password: password }
     }).then(data => {
 
         if (data) {
