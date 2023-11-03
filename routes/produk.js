@@ -20,4 +20,31 @@ router.get('/tampil', function(req, res, next) {
     });
 });
 
+//Tampil by Id
+router.get('/tampil/:id_produk', function(req, res, next) {
+    const id_produk = req.params.id_produk;
+
+    Produk.findByPk(id_produk).then(data => {
+        if (data) {
+            res.json({
+                status: true,
+                pesan: "Berhasil Tampil",
+                data: data
+            });
+        } else {
+            res.json({
+                status: false,
+                pesan: "Kategori tidak ditemukan",
+                data: null
+            });
+        }
+    }).catch(err => {
+        res.json({
+            status: false,
+            pesan: "Gagal Tampil: " + err.message,
+            data: null
+        });
+    });
+})
+
 module.exports = router;
