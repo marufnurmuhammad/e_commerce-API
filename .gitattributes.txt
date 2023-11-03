@@ -1,0 +1,4 @@
+# .gitattributes
+
+# Mengatur karakter akhir baris untuk file-file JavaScript (.js)
+*.js text eol=lf
