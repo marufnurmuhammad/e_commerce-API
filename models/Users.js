@@ -1,7 +1,7 @@
 var koneksi = require('../koneksi');
 const Sequelize = require('sequelize');
 const Users = koneksi.define('Pengguna', {
-    id: {
+    id_pengguna: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,
