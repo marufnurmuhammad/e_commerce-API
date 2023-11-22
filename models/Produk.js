@@ -23,6 +23,10 @@ const Produk = koneksi.define('Produk', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    stok: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    },
     kategori: {
         type: Sequelize.STRING,
         allowNull: false,
