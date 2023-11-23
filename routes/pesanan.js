@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 var Pesanan = require('../models/Pesanan');
-var Users = require('../models/Users')
+var Users = require('../models/Users');
+var cekToken = require('../middleware');
 
 /* TAMPIL DATA */
-router.get('/tampil', function(req, res, next) {
+router.get('/tampil', cekToken, function(req, res, next) {
     Pesanan.findAll({
         include: [{
             model: Users,

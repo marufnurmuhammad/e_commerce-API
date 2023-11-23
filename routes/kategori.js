@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
+var cekToken = require("../middleware");
 
 var Kategori = require('../models/Kategori');
 
 /* TAMPIL DATA */
-router.get('/tampil', function(req, res, next) {
+router.get('/tampil', cekToken, function(req, res, next) {
     Kategori.findAll().then(data => {
         res.json({
             status: true,
@@ -20,7 +21,7 @@ router.get('/tampil', function(req, res, next) {
     });
 })
 
-router.get('/tampil/:id_kategori', function(req, res, next) {
+router.get('/tampil/:id_kategori', cekToken, function(req, res, next) {
     const id_kategori = req.params.id_kategori;
 
     Kategori.findByPk(id_kategori).then(data => {

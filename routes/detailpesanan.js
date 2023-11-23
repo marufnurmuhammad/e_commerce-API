@@ -3,9 +3,9 @@ const router = express.Router();
 var DetailPesanan = require('../models/DetailPesanan');
 var Pesanan = require('../models/Pesanan');
 var Produk = require('../models/Produk');
-
+var cekToken = require('../middleware');
 /* TAMPIL DATA */
-router.get('/tampil', function(req, res, next) {
+router.get('/tampil', cekToken, function(req, res, next) {
     DetailPesanan.findAll({
         include: [{
                 model: Pesanan,

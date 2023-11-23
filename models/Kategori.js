@@ -1,4 +1,5 @@
 var koneksi = require('../koneksi');
+
 const Sequelize = require('sequelize');
 const Kategori = koneksi.define('Kategori', {
     id_kategori: {

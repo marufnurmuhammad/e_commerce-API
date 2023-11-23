@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-
+var cekToken = require("../middleware");
 var Produk = require('../models/Produk')
 
 /* TAMPIL DATA */
-router.get('/tampil', function(req, res, next) {
+router.get('/tampil', cekToken, function(req, res, next) {
     Produk.findAll().then(data => {
         res.json({
             status: true,
@@ -21,7 +21,7 @@ router.get('/tampil', function(req, res, next) {
 });
 
 //tampil terbabru berdasarkan created_At
-router.get('/terbaru', function(req, res, next) {
+router.get('/terbaru', cekToken, function(req, res, next) {
     Produk.findAll({
         order: [
             ['created_at', 'DESC']
@@ -42,7 +42,7 @@ router.get('/terbaru', function(req, res, next) {
 });
 
 //Tampil by Id
-router.get('/tampil/:id_produk', function(req, res, next) {
+router.get('/tampil/:id_produk', cekToken, function(req, res, next) {
     const id_produk = req.params.id_produk;
 
     Produk.findByPk(id_produk).then(data => {
