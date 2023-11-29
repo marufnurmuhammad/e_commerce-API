@@ -49,13 +49,13 @@ router.post('/', function(req, res, next) {
                 data: userData
             });
         } else {
-            res.json({
+            res.status(400).json({
                 status: false,
-                pesan: "Nama atau Password Salah",
+                pesan: "Email atau Password Salah",
             });
         }
     }).catch(error => {
-        res.json({
+        res.status(400).json({
             status: false,
             pesan: "Terjadi kesalahan dalam mencari pengguna",
             error: error.message
