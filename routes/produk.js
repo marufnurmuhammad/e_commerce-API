@@ -3,6 +3,9 @@ var router = express.Router();
 var cekToken = require("../middleware");
 var Produk = require('../models/Produk')
 
+
+
+
 /* TAMPIL DATA */
 router.get('/tampil', cekToken, function(req, res, next) {
     Produk.findAll().then(data => {
@@ -26,6 +29,7 @@ router.get('/terbaru', cekToken, function(req, res, next) {
         order: [
             ['created_at', 'DESC']
         ],
+        limit: 5,
     }).then(data => {
         res.json({
             status: true,

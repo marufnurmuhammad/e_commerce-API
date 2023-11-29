@@ -1,34 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-var Users = require('../models/Users')
+var Users = require('../models/Users');
+const { post } = require('.');
 
 
-// router.post('/', function(req, res, next) {
-//     var email = req.body.email;
-//     var password = req.body.password;
 
-//     Users.findOne({
-//         where: { email: email, password: password }
-//     }).then(data => {
 
-//         if (data) {
-//             res.json({
-//                 status: true,
-//                 pesan: "Berhasil Login",
-//                 data: req.body
-//             });
-//         } else {
-//             res.json({
-//                 status: false,
-//                 pesan: "Nama atau Password Salah",
-
-//             });
-//         }
-//     })
-// })
-
-router.post('/', function(req, res, next) {
+router.post('/login', function(req, res, next) {
     var email = req.body.email;
     var password = req.body.password;
 
@@ -62,5 +41,23 @@ router.post('/', function(req, res, next) {
         });
     });
 });
+
+
+router.post('/add', function(req, res, next) {
+    Users.create(req.body).then(data => {
+            res.json({
+                status: true,
+                pesan: "Berhasil Tambah User",
+                data: data
+            });
+        })
+        .catch(err => {
+            res.status(400).json({
+                status: false,
+                pesan: "Gagal Tambah: " + err.message,
+                data: []
+            });
+        });
+})
 
 module.exports = router;

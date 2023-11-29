@@ -22,11 +22,11 @@ const Users = koneksi.define('Pengguna', {
 
     alamat: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     no_hp: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
 
 }, {
